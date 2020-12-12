@@ -3,19 +3,20 @@ language: node_js
 node_js:
   - 10 # use nodejs v10 LTS
 cache: npm
-install:
-  - npm install
-  - npm install hexo-deployer-git --save
+
+#install:
+#  - npm install
+#  - npm install hexo-deployer-git --save
 branches:
   only:
     - main # build master branch only
 script:
   - hexo generate # generate static files
-after_script:
-  - git config user.name "Ximinhan"
-  - git config user.email "1921745321@qq.com"
+#after_script:
+#  - git config user.name "Ximinhan"
+#  - git config user.email "1921745321@qq.com"
   #- sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
-  - hexo deploy
+#  - hexo deploy
 deploy:
   provider: pages
   skip-cleanup: true
