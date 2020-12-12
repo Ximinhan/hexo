@@ -1,12 +1,11 @@
-sudo: required
 language: node_js
 node_js:
   - 10 # use nodejs v10 LTS
 cache: npm
 
-#install:
-#  - npm install
-#  - npm install hexo-deployer-git --save
+install:
+  - npm install
+  - npm install hexo-deployer-git --save
 branches:
   only:
     - main # build master branch only
@@ -19,9 +18,8 @@ script:
 #  - hexo deploy
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
+  token: $GH_TOKEN
+  keep_history: true
   on:
     branch: main
-  local-dir: public
+  local_dir: public
