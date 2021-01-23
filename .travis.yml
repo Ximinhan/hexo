@@ -21,7 +21,7 @@ deploy:
   token: $GH_TOKEN
   committer_from_gh: true
   keep_history: true
-  skip_cleanup: true
+  skip_cleanup: false
   on:
     branch: main
   local_dir: public
