@@ -10,7 +10,7 @@ branches:
   only:
     - main # build master branch only
 script:
-  - hexo generate # generate static files
+  - hexo generate --debug # generate static files
 #after_script:
   - cat ./public/index.html
   - git config user.email "1921745321@qq.com"
