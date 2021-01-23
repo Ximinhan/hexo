@@ -12,8 +12,8 @@ branches:
 script:
   - hexo generate # generate static files
 #after_script:
-#  - git config user.name "Ximinhan"
-#  - git config user.email "1921745321@qq.com"
+  - git config user.name "Ximinhan"
+  - git config user.email "1921745321@qq.com"
   #- sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
   - hexo deploy
 deploy:
