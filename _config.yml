@@ -104,7 +104,7 @@ theme: tree
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  #repo: https://github.com/Ximinhan/hexo
+  repo: https://github.com/Ximinhan/hexo.git
   branch: gh-pages
   token: ${GH_TOKEN}
   message: ''
