@@ -10,7 +10,7 @@ branches:
   only:
     - main # build master branch only
 script:
-  - git clone https://github.com/wujun234/hexo-theme-tree.git  themes/tree
+    # - git clone https://github.com/wujun234/hexo-theme-tree.git  themes/tree
   - hexo generate --debug # generate static files
 #after_script:
 #- cat ./public/index.html
