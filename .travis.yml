@@ -12,7 +12,7 @@ branches:
 script:
   - hexo generate # generate static files
 #after_script:
-  - git config user.name "Ximinhan"
+  - cat ./public/index.html
   - git config user.email "1921745321@qq.com"
   #- echo ${GH_TOKEN}
   # - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
