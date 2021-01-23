@@ -11,7 +11,6 @@ branches:
     - main # build master branch only
 script:
   - hexo generate # generate static files
-  - git commit -a .
 #after_script:
 #  - git config user.name "Ximinhan"
 #  - git config user.email "1921745321@qq.com"
@@ -20,6 +19,7 @@ script:
 deploy:
   provider: pages
   token: $GH_TOKEN
+  committer_from_gh: true
   keep_history: true
   on:
     branch: main
