@@ -106,4 +106,5 @@ deploy:
   type: git
   repo: https://github.com/Ximinhan/hexo
   branch: gh-pages
+  token: $GH_TOKEN
   message: ''
