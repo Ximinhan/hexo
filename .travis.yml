@@ -15,13 +15,13 @@ script:
 #  - git config user.name "Ximinhan"
 #  - git config user.email "1921745321@qq.com"
   #- sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
-#  - hexo deploy
+  - hexo deploy
 deploy:
   provider: pages
   token: $GH_TOKEN
   committer_from_gh: true
   keep_history: true
-  skip_cleanup: false
+  skip_cleanup: true
   on:
     branch: main
   local_dir: public
