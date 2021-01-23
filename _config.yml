@@ -105,5 +105,5 @@ theme: tree
 deploy:
   type: git
   repo: https://github.com/Ximinhan/hexo
-  branch: main
+  branch: gh-pages
   message: ''
