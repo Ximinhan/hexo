@@ -12,6 +12,8 @@ branches:
 script:
     # - git clone https://github.com/wujun234/hexo-theme-tree.git  themes/tree
   - rm db.json
+  - ls
+  - ls themes
   - hexo generate --debug # generate static files
 #after_script:
 #- cat ./public/index.html
