@@ -2,6 +2,12 @@
 title: 使用travis自动部署hexo笔记
 date: 2021-01-23 19:25:49
 tags:
+- atom
+- github
+- hexo
+- travis
+categories:
+- Diary
 ---
 
 # 工具列表
