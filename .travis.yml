@@ -14,7 +14,7 @@ script:
     # - git clone https://github.com/wujun234/hexo-theme-tree.git  themes/tree
   - hexo clean
   - ls
-  - ls themes
+  - ls themes/tree
   - hexo generate --debug # generate static files
 #after_script:
 #- cat ./public/index.html
