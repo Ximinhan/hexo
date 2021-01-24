@@ -12,7 +12,7 @@ branches:
     - main # build master branch only
 script:
     # - git clone https://github.com/wujun234/hexo-theme-tree.git  themes/tree
-  #- rm db.json
+  - rm db.json
   - cat db.json
   - ls
   - ls themes
