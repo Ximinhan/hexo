@@ -5,3 +5,4 @@ tags:
 ---
 
 git rm -r --cached .  删除git缓存导致的themes文件夹push失败
+使用atom git插件授权
