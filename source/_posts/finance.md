@@ -48,6 +48,7 @@ https://travis-ci.com/github/Ximinhan/hexo/builds
 
 # 配置atom
 markdown插件preview
+https://markdown-it.github.io/
 github插件授权
 
 可直接clone项目后在atom中打开编辑
