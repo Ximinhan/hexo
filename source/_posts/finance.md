@@ -26,6 +26,12 @@ git rm -r --cached .  删除git缓存导致的themes文件夹push失败
 
 # 配置 \_config.yml
 
+deploy部分的repo需要是一个object
+repo:
+    url:
+    branch: gh-pages
+    token: $GH_TOKEN
+
 # 配置 \.Travis.yml文件
 
 # 配置token与github pages
