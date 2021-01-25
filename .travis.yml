@@ -22,12 +22,19 @@ script:
   # - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
   - hexo deploy
 deploy:
+  #deploy方式
   provider: pages
   token: $GH_TOKEN
+  #使用user account
   committer_from_gh: true
+  #保持历史commit
   keep_history: true
+  #保留构建过程中新增文件
   skip_cleanup: true
+  #当前分支与branches对应
   on:
     branch: main
+  #部署到目标分支
   target_branch: gh-pages
+  #只提交指定目录
   local_dir: public

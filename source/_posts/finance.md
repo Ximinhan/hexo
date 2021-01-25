@@ -34,7 +34,14 @@ repo:
 
 # 配置 \.Travis.yml文件
 
+配置deploy参数
+查看build
+https://travis-ci.com/github/Ximinhan/hexo/builds
+
+
 # 配置token与github pages
+
+在project setting中配置github pages的source分支和public url
 
 # 检查部署
 向main分支可以触发travis build并部署到gh-pages分支
@@ -42,6 +49,12 @@ repo:
 # 配置atom
 markdown插件preview
 github插件授权
+
+可直接clone项目后在atom中打开编辑
+然后commit push就行了
+用命令的话
+可以配置git crendential免密push
+git commit -am “update” && git push
 
 
 编写shell脚本更新post内容
