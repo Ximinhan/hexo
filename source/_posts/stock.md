@@ -31,8 +31,6 @@ categories:
 
 {% echarts 600 '100%' %}
 {
-  color: ['#5470C6', '#EE6666'],
-
   tooltip: {
       trigger: 'none',
       axisPointer: {
@@ -54,9 +52,6 @@ categories:
           },
           axisLine: {
               onZero: false,
-              lineStyle: {
-                  color: colors[1]
-              }
           },
           axisPointer: {
               label: {
@@ -75,9 +70,6 @@ categories:
           },
           axisLine: {
               onZero: false,
-              lineStyle: {
-                  color: colors[0]
-              }
           },
           axisPointer: {
               label: {
