@@ -38,7 +38,7 @@ categories:
       }
   },
   legend: {
-      data:['2015 降水量', '2016 降水量']
+      data:['本基金', '沪深300']
   },
   grid: {
       top: 70,
@@ -56,7 +56,7 @@ categories:
           axisPointer: {
               label: {
                   formatter: function (params) {
-                      return '降水量  ' + params.value
+                      return '本基金  ' + params.value
                           + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
                   }
               }
@@ -74,7 +74,7 @@ categories:
           axisPointer: {
               label: {
                   formatter: function (params) {
-                      return '降水量  ' + params.value
+                      return '本基金  ' + params.value
                           + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
                   }
               }
@@ -89,7 +89,7 @@ categories:
   ],
   series: [
       {
-          name: '2015 降水量',
+          name: '本基金',
           type: 'line',
           xAxisIndex: 1,
           smooth: true,
@@ -99,7 +99,7 @@ categories:
           data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
       },
       {
-          name: '2016 降水量',
+          name: '沪深300',
           type: 'line',
           smooth: true,
           emphasis: {
