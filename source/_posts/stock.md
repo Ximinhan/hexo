@@ -32,82 +32,50 @@ categories:
 {% echarts 600 '100%' %}
 {
   tooltip: {
-      trigger: 'none',
-      axisPointer: {
-          type: 'cross'
-      }
-  },
-  legend: {
-      data:['本基金', '沪深300']
-  },
-  grid: {
-      top: 70,
-      bottom: 50
-  },
-  xAxis: [
-      {
-          type: 'category',
-          axisTick: {
-              alignWithLabel: true
-          },
-          axisLine: {
-              onZero: false,
-          },
-          axisPointer: {
-              label: {
-                  formatter: function (params) {
-                      return '本基金  ' + params.value
-                          + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
-                  }
-              }
-          },
-          data: ['2016-1', '2016-2', '2016-3', '2016-4', '2016-5', '2016-6', '2016-7', '2016-8', '2016-9', '2016-10', '2016-11', '2016-12']
-      },
-      {
-          type: 'category',
-          axisTick: {
-              alignWithLabel: true
-          },
-          axisLine: {
-              onZero: false,
-          },
-          axisPointer: {
-              label: {
-                  formatter: function (params) {
-                      return '本基金  ' + params.value
-                          + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
-                  }
-              }
-          },
-          data: ['2015-1', '2015-2', '2015-3', '2015-4', '2015-5', '2015-6', '2015-7', '2015-8', '2015-9', '2015-10', '2015-11', '2015-12']
-      }
-  ],
-  yAxis: [
-      {
-          type: 'value'
-      }
-  ],
-  series: [
-      {
-          name: '本基金',
-          type: 'line',
-          xAxisIndex: 1,
-          smooth: true,
-          emphasis: {
-              focus: 'series'
-          },
-          data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
-      },
-      {
-          name: '沪深300',
-          type: 'line',
-          smooth: true,
-          emphasis: {
-              focus: 'series'
-          },
-          data: [3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7]
-      }
-  ]
+        trigger: 'axis',
+        position: function (pt) {
+            return [pt[0], '10%'];
+        }
+    },
+    title: {
+        left: 'center',
+        text: '基金走势',
+    },
+    toolbox: {
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'time',
+        boundaryGap: false
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '100%']
+    },
+    dataZoom: [{
+        type: 'inside',
+        start: 0,
+        end: 20
+    }, {
+        start: 0,
+        end: 20
+    }],
+    series: [
+        {
+            name: '模拟数据',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            areaStyle: {},
+            data: [[1, 1],[ 2, 2], [3, 3], [4, 4]]
+        }
+    ]
 };
 {% endecharts %}
 
