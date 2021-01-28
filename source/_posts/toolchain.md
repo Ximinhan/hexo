@@ -9,3 +9,5 @@ categories:
 ---
 
 typer CLI
+jinja2模板注入
+httpie/aria2
