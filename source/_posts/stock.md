@@ -57,8 +57,10 @@ categories:
         boundaryGap: false
     },
     yAxis: {
+        min: 2.5,
+        max: 4,
         type: 'value',
-        boundaryGap: [0, '10%']
+        boundaryGap: [0, '100%']
     },
     dataZoom: [{
         type: 'inside',
