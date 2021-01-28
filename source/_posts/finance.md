@@ -59,6 +59,23 @@ git commit -am “update” && git push
 
 
 编写shell脚本更新post内容
+curl -s http://fund.eastmoney.com/pingzhongdata/519150.js|sed 's/;/\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}\,{/\n/g'|sed "s/[A-Za-z\"\:]*//g"|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n 10
+cat ./test|while read line;
+do
+    s1=`echo $line|cut -d "|" -f 2`
+    s2=`echo $line|cut -d "|" -f 3`
+    s3=`echo $line|cut -d "|" -f 4`
+    s1=`date -d @${s1:0:10} +'%Y-%m-%d'`
+    if [ ${s3:0:1} == "-" ];then
+        s3="<font color=green>$s3%</font>"
+    else
+        s3="<font color=red>$s3%</font>"
+    fi
+    echo "|$s1|$s2|$s3|";
+    #s1=`date -d @${s1:0:10} +'%Y/%m/%d'`;
+    #echo "[\"$s1\",$s2],";
+done
+
 使用travis script 执行内容并使用cronjob自动部署
 markdown list table 列表 echart曲线图
 
