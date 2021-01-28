@@ -7,3 +7,5 @@ tags:
 categories:
 - Diary
 ---
+
+typer CLI
