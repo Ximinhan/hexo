@@ -12,7 +12,7 @@ categories:
 
 # 基本信息
 ## 519150
-- 新华消费优选混合
+- 新华消费优选混合<font color=gray size=5>gray</font>
 - 当前净值：3.452
 - 近一周涨跌幅：+0.34%
 - 近一个月涨跌幅: +8.72%
@@ -62,7 +62,7 @@ categories:
     },
     dataZoom: [{
         type: 'inside',
-        start: 70,
+        start: 50,
         end: 100
     }, {
         start: 0,
@@ -70,7 +70,7 @@ categories:
     }],
     series: [
         {
-            name: '模拟数据',
+            name: '本基金',
             type: 'line',
             smooth: true,
             symbol: 'none',
