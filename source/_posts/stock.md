@@ -72,9 +72,6 @@ categories:
         {
             name: '本基金',
             type: 'line',
-            smooth: true,
-            symbol: 'none',
-            areaStyle: {},
             data: [
             ["2021/01/28",3.3709],
 ["2021/01/27",3.452],
