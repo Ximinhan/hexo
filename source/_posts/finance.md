@@ -59,6 +59,11 @@ git commit -am “update” && git push
 
 
 编写shell脚本更新post内容
+1.基金名称
+curl -s http://fund.eastmoney.com/pingzhongdata/519150.js|sed 's/;/\n/g'|grep fS_name|grep -Po '(?<=").*(?=")'
+
+
+2.历史净值
 curl -s http://fund.eastmoney.com/pingzhongdata/519150.js|sed 's/;/\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}\,{/\n/g'|sed "s/[A-Za-z\"\:]*//g"|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n 10
 cat ./test|while read line;
 do
