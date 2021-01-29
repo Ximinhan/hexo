@@ -56,7 +56,10 @@ github插件授权
 用命令的话
 可以配置git crendential免密push
 git commit -am “update” && git push
-
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push origin master
 
 编写shell脚本更新post内容
 1.基金名称
