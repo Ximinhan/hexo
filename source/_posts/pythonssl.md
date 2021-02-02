@@ -127,3 +127,13 @@ sudo vim /usr/local/lib/python3.6/site-packages/koji/__init__.py
 2751             finally:
 2752                 r.close()
 2753         return ret
+
+
+登陆
+https://api.ci.openshift.org/console/catalog
+oc registry login
+$ oc registry login
+info: Using registry public hostname registry.svc.ci.openshift.org
+Saved credentials for registry.svc.ci.openshift.org
+
+elliott verify-payload 使用registry.svc.ci.openshift.org
