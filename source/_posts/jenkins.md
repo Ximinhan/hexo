@@ -18,6 +18,12 @@ https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=67183
 【cgit】
 http://pkgs.devel.redhat.com/cgit/containers/openshift-jenkins-2/
 
+使用custom job build openshift-jenkins-2 image勾选compose选项会生成新的dir在embargo repo
+http://download.lab.bos.redhat.com/rcm-guest/puddles/RHAOS/plashets/4.6-el8/
+
+https://github.com/openshift/ocp-build-data/blob/openshift-4.6/group.yml#L79
+
+
 【Brew】jenkins-2-plugins
 https://brewweb.engineering.redhat.com/brew/packageinfo?packageID=63638
 不同的plugin build有不同的tag
@@ -55,3 +61,6 @@ tkn task list
 tkn pipeline list
 tkn pipelinerun list
 tkn pipelinerun logs -f <pipelinerun ID>
+
+
+rebuild metadata时如果有依赖不满足要先build operator 使用rebase模式更新依赖再rebuild metadata
