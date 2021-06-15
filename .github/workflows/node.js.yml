@@ -32,8 +32,6 @@ jobs:
         npm install hexo-tag-echarts3 --save
         node --version
         npm --version
-        nvm install
-        nvm --version
         
         pwd
         hexo generate --debug
