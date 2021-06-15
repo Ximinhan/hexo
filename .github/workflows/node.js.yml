@@ -30,8 +30,9 @@ jobs:
         npm install
         npm install hexo-deployer-git --save
         npm install hexo-tag-echarts3 --save
-    - name: generate
-      run: |
+        node --version
+        npm --version
+        vnm --version
         hexo generate --debug
         hexo deploy
         
