@@ -35,7 +35,7 @@ jobs:
         node --version
         npm --version
         
-        ls `pwd`
+        echo $GH_TOKEN
         hexo generate --debug
         hexo deploy
         
