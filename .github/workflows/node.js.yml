@@ -28,6 +28,7 @@ jobs:
     - name: install hexo
       run: |
         npm install
+        npm install hexo
         npm install hexo-deployer-git --save
         npm install hexo-tag-echarts3 --save
         node --version
