@@ -33,11 +33,8 @@ jobs:
         npm install -g hexo-cli
         npm install hexo-deployer-git --save
         npm install hexo-tag-echarts3 --save
-        node --version
-        npm --version
-        git config --global user.email "1921745321@qq.com"
-        git config --global user.name "Ximinhan"
-        echo $GH_TOKEN
-        hexo generate --debug
-        hexo deploy
+    - name: generate files
+      run: hexo generate --debug
+    - name: deploy    
+      run: hexo deploy
         
