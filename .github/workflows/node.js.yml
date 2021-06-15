@@ -13,10 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions: read-all|write-all
     environment: github-pages
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     strategy:
       matrix:
         node-version: [10.x]
