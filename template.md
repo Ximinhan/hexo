@@ -56,8 +56,8 @@ categories:
         boundaryGap: false
     },
     yAxis: {
-        min: 2.5,
-        max: 4,
+        min: {{ min1 }},
+        max: {{ max1 }},
         type: 'value',
         boundaryGap: [0, '100%']
     },

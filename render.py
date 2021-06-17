@@ -39,7 +39,10 @@ p = subprocess.Popen("sh get_data.sh 3m {}".format(sys.argv[1]),stdout=subproces
 m3 = p.stdout.readline().decode().strip()
 p = subprocess.Popen("sh get_data.sh 6m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 m6 = p.stdout.readline().decode().strip()
-
+p = subprocess.Popen("sh get_min_max.sh max {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+max1 = p.stdout.readline().decode().strip()
+p = subprocess.Popen("sh get_min_max.sh min {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+min1 = p.stdout.readline().decode().strip()
 
 temp_out = temp.render(
         datetime=dt,
@@ -48,7 +51,9 @@ temp_out = temp.render(
         name='{}-{}'.format(sys.argv[1],name),
         m1=m1,
         m3=m3,
-        m6=m6)
+        m6=m6,
+        min1=min1,
+        max1=max1)
 with open(os.path.join('./source/_posts/','{}_{}.md'.format(sys.argv[1],name)), 'w', encoding='utf-8') as f:
     f.writelines(temp_out)
     f.close()
