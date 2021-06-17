@@ -1,4 +1,4 @@
-min=0
+min=100
 max=0
 http http://fund.eastmoney.com/pingzhongdata/$2.js|sed 's/;/\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}\,{/\n/g'|sed "s/[A-Za-z\"\:]*//g"|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n 60 > ./testn
 while read line;
@@ -25,6 +25,6 @@ if [ $1 == "max" ]
 then
     echo $[max+1]
 else
-    echo $[min+1]
+    echo $[min]
 fi
 rm ./testn
