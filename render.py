@@ -44,6 +44,19 @@ max1 = p.stdout.readline().decode().strip()
 p = subprocess.Popen("sh get_min_max.sh min {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 min1 = p.stdout.readline().decode().strip()
 
+
+p = subprocess.Popen("sh get_data.sh stocklist {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+sl = p.stdout.readlines()
+hold = []
+for line in sl:
+    p1 = subprocess.Popen("sh get_data.sh getstock {}".format(line.decode().strip()),stdout=subprocess.PIPE,shell=True)
+    it = p1.stdout.readline().decode().strip()
+    hold.append(it.strip())
+
+
+
+
+
 temp_out = temp.render(
         datetime=dt,
         valuelist=vl2,
@@ -53,7 +66,8 @@ temp_out = temp.render(
         m3=m3,
         m6=m6,
         min1=min1,
-        max1=max1)
+        max1=max1,
+        stocklist=hold)
 with open(os.path.join('./source/_posts/','{}_{}.md'.format(sys.argv[1],name)), 'w', encoding='utf-8') as f:
     f.writelines(temp_out)
     f.close()
