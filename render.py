@@ -31,7 +31,7 @@ for line in p.stdout.readlines():
     ll2.append(line.decode().strip())
 
 p = subprocess.Popen("sh get_data.sh name {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
-name = p.stdout.readline().decode().strip()
+name = p.stdout.readline().decode().strip().replace("/","\\")
 
 p = subprocess.Popen("sh get_data.sh 1m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 m1 = p.stdout.readline().decode().strip()
@@ -52,7 +52,6 @@ for line in sl:
     p1 = subprocess.Popen("sh get_data.sh getstock {}".format(line.decode().strip()),stdout=subprocess.PIPE,shell=True)
     it = p1.stdout.readline().decode().strip()
     hold.append(it.strip())
-
 
 
 
