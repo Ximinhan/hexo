@@ -1,6 +1,6 @@
 if [ $1 == "name" ]
 then
-    curl -s http://fund.eastmoney.com/pingzhongdata/$2.js|sed 's/;/\n/g'| grep fS_name |grep -Po '(?<=\").*(?=\")'
+    http -b http://fund.eastmoney.com/pingzhongdata/$2.js|sed 's/;/\n/g'| grep fS_name |grep -Po '(?<=\").*(?=\")'
 elif [ $1 == "1m" ]
 then
     curl -s http://fund.eastmoney.com/pingzhongdata/$2.js|sed 's/;/\n/g'| grep syl_1y |grep -Po '(?<=\").*(?=\")'
