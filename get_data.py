@@ -17,7 +17,7 @@ def main():
         #print(datetime.datetime.fromtimestamp(int(ds[1][0:10])).strftime('%Y-%m-%d'),ds[2],ds[3])
 
     result.reverse()
-    i=1
+    i=0
     while i < 60:
         #日期
         d0 = result[i][0]
@@ -82,6 +82,8 @@ def pretrace(a,b):
 #波动率
 def wave(p):
     #print("wave",p)
+    if len(p)==0:
+        return 0
     s=0
     i=0
     while i < len(p):
@@ -99,6 +101,8 @@ def wave(p):
 #最大回撤
 def maxretrace(p):
     #print("maxretrace",p)
+    if len(p)==0:
+        return 0
     r=0
     i=0
     while i < len(p):
@@ -116,6 +120,8 @@ def maxretrace(p):
 #区间累计收益率
 def sumprate(p):
     #print("sumprate",p)
+    if len(p)==0:
+        return 0
     i=1
     t=0
     while i < len(p):
@@ -126,12 +132,16 @@ def sumprate(p):
 #区间净收益率
 def prate(p):
     #print("prate",p)
+    if len(p)==0:
+        return 0
     return round(((p[-1][1]-p[0][1])/p[0][1])*100,2)
 
 
 #连续下跌天数
 def keepdown(p):
     #print("keepdown",p)
+    if len(p)==0:
+        return 0
     i=1
     n=0
     while i < len(p):
@@ -144,18 +154,23 @@ def keepdown(p):
 #上涨概率
 def uprate(p):
     #print("uprate",p)
+    if len(p)==0:
+        return 0
     up=0
     down=0
     for i in p:
-        if int(i[2]) > 0:
+        #print(i[0],i[1],i[2])
+        if float(i[2]) > 0:
             up=up+1
         else:
             down=down+1
-
+    #print(up,down)
     return round(float(up/(up+down)),2)
 #连续上涨天数
 def keepup(p):
     #print("keepup",p)
+    if len(p)==0:
+        return 0
     i=1
     n=0
     while i < len(p):
