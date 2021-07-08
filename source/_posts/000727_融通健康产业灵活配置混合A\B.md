@@ -1,6 +1,6 @@
 ---
 title: 产品详情
-date: 2021-07-08 16:40:15
+date: 2021-07-08 19:38:14
 tags:
 - atom
 - github
@@ -141,8 +141,8 @@ categories:
 
 # 历史净值
 
-| 日期 | 净值 | 涨幅 | 上涨概率 | 连涨 | 连跌 | 区间净收益 | 最大回撤 | 收益回撤比 | 波动率 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 日期 | 净值 | 涨幅 | 上涨概率 | 连涨 | 连跌 | 区间净收益 | 区间累计收益 | 最大回撤 | 收益回撤比 | 波动率 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |2021-07-07|3.057|<font color=red>1.06%</font>|0.53|0|3|<font color=red>1.78%</font>|<font color=red>3.63%</font>|<font color=red>10.74%</font>|1.28|10.09|
 |2021-07-06|3.025|<font color=green>-1.88%</font>|0.53|0|2|<font color=red>3.73%</font>|<font color=red>3.62%</font>|<font color=red>10.74%</font>|2.69|9.98|
 |2021-07-05|3.083|<font color=green>-0.52%</font>|0.54|0|1|<font color=red>4.27%</font>|<font color=red>3.61%</font>|<font color=red>10.74%</font>|3.08|10.05|
