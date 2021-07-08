@@ -19,7 +19,7 @@ temp = env.get_template('template.md')
 
 
 dt = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-p = subprocess.Popen('sh create_data.sh {}'.format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen('python3 get_data.py {}'.format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 vl = p.stdout.readlines()
 vl2 = []
 for line in vl:
