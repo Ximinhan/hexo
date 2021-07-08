@@ -60,14 +60,14 @@ def main():
             color(item[7]),#区间累计收益率
             color(item[8]),#最大回撤
             item[9],#收益回撤比
-            color(item[10]),#波动率
+            item[10],#波动率
         ))
     #print(result)
     #print(ret)
 
 def color(p):
     ret=""
-    if p >= 0:
+    if p < 0:
         ret = "<font color=green>{}%</font>".format(p)
     else:
         ret = "<font color=red>{}%</font>".format(p)
