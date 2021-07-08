@@ -195,7 +195,7 @@ a {
 }
 /* index */
 #content{
-	max-width: 850px;
+	max-width: 950px;
 	top: 50px;
 	flex-grow: 1;
 	flex-shrink: 1;
@@ -404,7 +404,7 @@ table td {
     padding: 5px;
 }
 /* @media */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 950px) {
 
 	#sidebar {
 		opacity: 0.95;
