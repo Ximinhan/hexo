@@ -41,12 +41,14 @@ jobs:
         http http://fund.eastmoney.com/js/fundcode_search.js    
     - name: install requirement
       run: python3 update_start_list.py
-    - name: action-git-diff-suggestions
-      uses: getsentry/action-git-diff-suggestions@v1
-    - name: Git Commit/Push Changes
-      uses: actions-x/commit@v2
+    - name: Commit files
+      run: |
+        git config --local user.email "1921745321@qq.com"
+        git config --local user.name "Ximinhan"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        # The committer's name
-        name: github Actions workflow
-        # The branch to push the changes back to, defaults to the current branch
-        branch: master
+        github_token: ${{ secrets.GH_TOKEN }}
+        branch: main
+
