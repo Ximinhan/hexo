@@ -40,4 +40,4 @@ jobs:
         http --help
         http http://fund.eastmoney.com/js/fundcode_search.js    
     - name: install requirement
-      run: python3 get_data.py 005669
+      run: python3 update_start_list.py
