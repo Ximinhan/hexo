@@ -14,7 +14,7 @@ on:
         # Default value if no value is explicitly provided
         default: 'World'
         # Input has to be provided for the workflow to run
-        required: true
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,4 +34,4 @@ jobs:
     - name: update data
       run: ls -la .
     - name: install requirement
-      run: /usr/bin/python3.6 update_start_list.py
+      run: python update_start_list.py
