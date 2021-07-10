@@ -41,3 +41,10 @@ jobs:
         http http://fund.eastmoney.com/js/fundcode_search.js    
     - name: install requirement
       run: python3 update_start_list.py
+    - name: Git Commit/Push Changes
+      uses: actions-x/commit@v2
+      with:
+        # The committer's name
+        name: github Actions workflow
+        # The branch to push the changes back to, defaults to the current branch
+        branch: master
