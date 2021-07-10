@@ -3,6 +3,7 @@ from __future__ import division
 import subprocess
 import sys
 import datetime
+import csv
 
 def main():
     p = subprocess.Popen("http http://fund.eastmoney.com/pingzhongdata/{}.js|sed 's/;/\\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}}\,{{/\\n/g'|sed 's/[A-Za-z\\\"\:]*//g'|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n 60".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
@@ -11,11 +12,9 @@ def main():
     ret=[]
     for line in vl:
         ds = line.decode().strip().split("|")
-    #日期，净值，涨跌幅，上涨概率，连续上涨天数，连续下跌天数，区间净收益率，区间累计收益
-
+        #日期，净值，涨跌幅，上涨概率，连续上涨天数，连续下跌天数，区间净收益率，区间累计收益
         result.append([datetime.datetime.fromtimestamp(int(ds[1][0:10])).strftime('%Y-%m-%d'),float(ds[2]),float(ds[3])])
         #print(datetime.datetime.fromtimestamp(int(ds[1][0:10])).strftime('%Y-%m-%d'),ds[2],ds[3])
-
     result.reverse()
     i=0
     while i < 60:
@@ -41,11 +40,12 @@ def main():
         d9 = pretrace(d6,d8)
         #波动率
         d10 = wave(result[:i])
-
-
         #print(d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10)
-        ret.append([d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10])
+        ret.append([d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,sys.argv[1]])
         i=i+1
+    with open('today.csv','a+') as td:
+        cw = csv.writer(td)
+        cw.writerow(ret[-1])
 
     ret.reverse()
     for item in ret:
@@ -72,6 +72,8 @@ def color(p):
     else:
         ret = "<font color=red>{}%</font>".format(p)
     return ret
+
+
 #收益回撤比
 def pretrace(a,b):
     if b == 0:
