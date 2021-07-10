@@ -51,6 +51,7 @@ jobs:
         branch: main   
   
   build:
+    needs: updatedata
     runs-on: ubuntu-latest
     environment: github-pages
     env:
