@@ -41,6 +41,8 @@ jobs:
         http http://fund.eastmoney.com/js/fundcode_search.js    
     - name: install requirement
       run: python3 update_start_list.py
+    - name: action-git-diff-suggestions
+      uses: getsentry/action-git-diff-suggestions@v1
     - name: Git Commit/Push Changes
       uses: actions-x/commit@v2
       with:
