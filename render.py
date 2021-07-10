@@ -26,30 +26,30 @@ for line in vl:
   vl2.append(line.decode().strip())
 
 ll2 = []
-p = subprocess.Popen('sh create_line.sh {}'.format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen('/bin/bash create_line.sh {}'.format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 for line in p.stdout.readlines():
     ll2.append(line.decode().strip())
 
-p = subprocess.Popen("sh get_data.sh name {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen("/bin/bash get_data.sh name {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 name = p.stdout.readline().decode().strip().replace("/","\\")
 
-p = subprocess.Popen("sh get_data.sh 1m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen("/bin/bash get_data.sh 1m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 m1 = p.stdout.readline().decode().strip()
-p = subprocess.Popen("sh get_data.sh 3m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen("/bin/bash get_data.sh 3m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 m3 = p.stdout.readline().decode().strip()
-p = subprocess.Popen("sh get_data.sh 6m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen("/bin/bash get_data.sh 6m {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 m6 = p.stdout.readline().decode().strip()
-p = subprocess.Popen("sh get_min_max.sh max {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen("/bin/bash get_min_max.sh max {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 max1 = p.stdout.readline().decode().strip()
-p = subprocess.Popen("sh get_min_max.sh min {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen("/bin/bash get_min_max.sh min {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 min1 = p.stdout.readline().decode().strip()
 
 
-p = subprocess.Popen("sh get_data.sh stocklist {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+p = subprocess.Popen("/bin/bash get_data.sh stocklist {}".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
 sl = p.stdout.readlines()
 hold = []
 for line in sl:
-    p1 = subprocess.Popen("sh get_data.sh getstock {}".format(line.decode().strip()),stdout=subprocess.PIPE,shell=True)
+    p1 = subprocess.Popen("/bin/bash get_data.sh getstock {}".format(line.decode().strip()),stdout=subprocess.PIPE,shell=True)
     it = p1.stdout.readline().decode().strip()
     hold.append(it.strip())
 
