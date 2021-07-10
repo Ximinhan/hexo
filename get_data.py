@@ -14,9 +14,10 @@ def main():
         ds = line.decode().strip().split("|")
         #日期，净值，涨跌幅，上涨概率，连续上涨天数，连续下跌天数，区间净收益率，区间累计收益
         result.append([datetime.datetime.fromtimestamp(int(ds[1][0:10])).strftime('%Y-%m-%d'),float(ds[2]),float(ds[3])])
-        #print(datetime.datetime.fromtimestamp(int(ds[1][0:10])).strftime('%Y-%m-%d'),ds[2],ds[3])
+        print(datetime.datetime.fromtimestamp(int(ds[1][0:10])).strftime('%Y-%m-%d'),ds[2],ds[3])
     result.reverse()
     i=0
+    print(result)
     while i < 60:
         #日期
         d0 = result[i][0]
