@@ -8,13 +8,13 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      commit:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'commit message'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: 'update changes by github actions workflow'
         # Input has to be provided for the workflow to run
-        required: false
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,24 +31,49 @@ jobs:
     # Runs a single command using the runners shell
     - name: Check out repository
       uses: actions/checkout@v2
-    - name: update data
+    - name: install requirements
       run: sudo pip3 install httpie jinja2 selenium
     - name: download web driver
       run: |
         wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz
-        sudo tar -xvf geckodriver.tar.gz -C /usr/local/bin/
-        http --help
-        http http://fund.eastmoney.com/js/fundcode_search.js    
-    - name: install requirement
+        sudo tar -xvf geckodriver.tar.gz -C /usr/local/bin/  
+    - name: update data
       run: python3 update_start_list.py
     - name: Commit files
       run: |
         git config --local user.email "1921745321@qq.com"
         git config --local user.name "Ximinhan"
-        git commit -m "Add changes" -a
+        git commit -m "${{ github.event.inputs.commit }}" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GH_TOKEN }}
-        branch: main
+        branch: main   
+  
+  build:
+    runs-on: ubuntu-latest
+    environment: github-pages
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    strategy:
+      matrix:
+        node-version: [10.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: install hexo
+      run: |
+        npm install
+        npm install -g hexo-cli
+        npm install hexo-deployer-git --save
+        npm install hexo-tag-echarts3 --save
+    - name: generate files
+      run: hexo generate --debug
+    - name: deploy    
+      run: hexo deploy
 
