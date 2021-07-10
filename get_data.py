@@ -6,7 +6,7 @@ import datetime
 import csv
 
 def main():
-    p = subprocess.Popen("http http://fund.eastmoney.com/pingzhongdata/{}.js|sed 's/;/\\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}}\,{{/\\n/g'|sed 's/[A-Za-z\\\"\:]*//g'|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n 60".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+    p = subprocess.Popen("curl -s http://fund.eastmoney.com/pingzhongdata/{}.js|sed 's/;/\\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}}\,{{/\\n/g'|sed 's/[A-Za-z\\\"\:]*//g'|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n 60".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
     vl=p.stdout.readlines()
     result=[]
     ret=[]
