@@ -47,6 +47,7 @@ jobs:
       run: |
         git config --local user.email "1921745321@qq.com"
         git config --local user.name "Ximinhan"
+        git diff
         git commit -m "${{ github.event.inputs.commit }}" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
