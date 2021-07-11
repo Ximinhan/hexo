@@ -44,9 +44,9 @@ def main():
         #print(d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10)
         ret.append([d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,sys.argv[1]])
         i=i+1
-    with open('today.csv','a+') as td:
-        cw = csv.writer(td)
-        cw.writerow(ret[-1])
+   # with open('today.csv','a+') as td:
+   #     cw = csv.writer(td)
+   #     cw.writerow(ret[-1])
 
     ret.reverse()
     for item in ret:
