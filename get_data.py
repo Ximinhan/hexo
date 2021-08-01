@@ -4,9 +4,11 @@ import subprocess
 import sys
 import datetime
 import csv
-
+num=60
+if len(sys.argv)>2:
+    num=sys.argv[2]
 def main():
-    p = subprocess.Popen("curl -s http://fund.eastmoney.com/pingzhongdata/{}.js|sed 's/;/\\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}}\,{{/\\n/g'|sed 's/[A-Za-z\\\"\:]*//g'|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n 60".format(sys.argv[1]),stdout=subprocess.PIPE,shell=True)
+    p = subprocess.Popen("curl -s http://fund.eastmoney.com/pingzhongdata/{}.js|sed 's/;/\\n/g'|grep Data_netWorthTrend|grep -Po '(?<=\[).*(?=\])'|sed 's/}}\,{{/\\n/g'|sed 's/[A-Za-z\\\"\:]*//g'|cut -d ',' -f 1,2,3|sed 's/,/|/g'|sed 's/^/|&/g'|sed 's/$/&|/g'|tac|head -n {}".format(sys.argv[1],num),stdout=subprocess.PIPE,shell=True)
     vl=p.stdout.readlines()
     result=[]
     ret=[]
@@ -18,7 +20,7 @@ def main():
     result.reverse()
     i=0
     #print(result)
-    while i < 60:
+    while i < int(num):
         #日期
         d0 = result[i][0]
         #净值
