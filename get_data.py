@@ -19,6 +19,8 @@ def main():
         #print(datetime.datetime.fromtimestamp(int(ds[1][0:10])).strftime('%Y-%m-%d'),ds[2],ds[3])
     result.reverse()
     i=0
+    #定投概率
+    pickrate=[[],[],[],[],[]]
     #print(result)
     while i < int(num):
         #日期
@@ -43,6 +45,13 @@ def main():
         d9 = pretrace(d6,d8)
         #波动率
         d10 = wave(result[:i])
+
+        #周几
+        #{ mon: up:{},dowm:{}
+        wd=datetime.datetime.strptime(d0, "%Y-%m-%d").weekday()
+        #mon 0 fir 4
+        pickrate[wd].append(d2)
+
         #print(d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10)
         ret.append([d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,sys.argv[1]])
         i=i+1
@@ -66,7 +75,17 @@ def main():
             item[10],#波动率
         ))
     #print(result)
-    #print(ret)
+    #print(pickrate)
+    #getday(pickrate)
+
+def getday(p):
+    for s,i in enumerate(p):
+        t=0
+        for k in i:
+            if k>0:
+                t=t+1
+        print("day {} up rate is:{}".format(s,t/len(i)))
+
 
 def color(p):
     ret=""
