@@ -21,7 +21,7 @@ def main():
     i=0
     #定投概率
     pickrate=[[],[],[],[],[]]
-    #print(result)
+   # print(result)
     while i < int(num):
         #日期
         d0 = result[i][0]
